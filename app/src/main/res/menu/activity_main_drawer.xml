@@ -3,33 +3,37 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_mainmenu"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:title="Main menu" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_building"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Add Building" />
+        <item
+            android:id="@+id/nav_unit"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:title="Add Unit" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_tenant"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:title="Add Tenant" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_lease"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="Add Lease" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Notification History">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="Early reminder" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="Late notice" />
         </menu>
     </item>
 

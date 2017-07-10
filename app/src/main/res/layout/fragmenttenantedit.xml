@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tenantnametextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tenant full name"/>
+
+    <EditText
+        android:id="@+id/tenantnameeditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Full name"/>
+
+    <TextView
+        android:id="@+id/tenantphonetextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Phone number"/>
+
+    <EditText
+        android:id="@+id/tenantphoneeditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="phone"
+        android:text="Phone number"/>
+
+    <Button
+        android:id="@+id/addtenantbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add"/>
+
+</LinearLayout>

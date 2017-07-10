@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/addressbuildingtextView"
+            android:layout_weight="0.8"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="left"
+            android:text="Address"/>
+
+        <TextView
+            android:id="@+id/addressbuildinglist"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="right"
+            android:text="Address"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/unitnbrtextView"
+            android:layout_weight="0.6"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="left"
+            android:text="Number of unit"/>
+
+        <TextView
+            android:id="@+id/unitnbrlist"
+            android:layout_weight="0.4"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="right"
+            android:text="Number of unit"/>
+    </LinearLayout>
+
+</LinearLayout>

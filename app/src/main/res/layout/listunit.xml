@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/addressunittextView"
+            android:layout_weight="0.8"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="left"
+            android:text="Address"/>
+
+        <TextView
+            android:id="@+id/addressunitlist"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="right"
+            android:text="Address"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/nbrunittextView"
+            android:layout_weight="0.25"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="left"
+            android:text="Unit number"/>
+
+        <TextView
+            android:id="@+id/nbrunitlist"
+            android:layout_weight="0.25"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="right"
+            android:text="Unit number"/>
+        <TextView
+            android:id="@+id/floorunittextView"
+            android:layout_weight="0.25"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="left"
+            android:text="Unit floor"/>
+
+        <TextView
+            android:id="@+id/floorunitlist"
+            android:layout_weight="0.25"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="right"
+            android:text="Unit floor"/>
+    </LinearLayout>
+</LinearLayout>
