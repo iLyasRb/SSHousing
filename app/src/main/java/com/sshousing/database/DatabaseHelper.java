@@ -4,7 +4,6 @@ package com.sshousing.database;
  * Created by ilyas on 5/28/17.
  */
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -19,7 +18,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String Building = "Building";
     public static final String BUILDINGID = "BUILDINGID";
     public static final String ADDRESS = "ADDRESS";
-    public static final String NBROFUNIT = "NBROFUNIT";
+    public static final String NBROFUNITS = "NBROFUNITS";
+    public static final String NBROFFLOORS = "NBROFFLOORS";
 
     //-----------------------Unit table-----------------------------
     public static final String Unit = "Unit";
@@ -32,9 +32,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String LEASEID = "LEASEID";
     public static final String LEASESTART = "LEASESTART";
     public static final String LEASEEND = "LEASEEND";
+    public static final String RENTAMOUNT = "RENTAMOUNT";
     public static final String RENTDUEDATE = "RENTDUEDATE";
-    public static final String DEPOSIT = "DEPOSIT";
-    public static final String NOTE = "NOTE";
+    public static final String RENTDEPOSIT = "RENTDEPOSIT";
+    public static final String LEASENOTE = "LEASENOTE";
 
     //-----------------------Tenant table-----------------------------
     public static final String Tenant = "Tenant";
@@ -62,7 +63,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String MESSAGETYPE = "MESSAGETYPE";
 
     private static final String DATABASE_NAME = "SSHOUSING";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 3;
 
     public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -75,12 +76,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         Log.w("DatabaseHelper", "creating database " + sqLiteDatabase.toString());
-        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + Building + " (" + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + ADDRESS + " TEXT, " + NBROFUNIT + " INTEGER);");
+        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + Building + " (" + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + ADDRESS + " TEXT, " + NBROFUNITS + " INTEGER, " + NBROFFLOORS + " INTEGER);");
         sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + Unit + " (" + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + BUILDINGID + " INTEGER, " + NUMBER + " TEXT, " + FLOOR + " INTEGER, FOREIGN KEY(" + BUILDINGID + ") REFERENCES " + Building + " (" + _ID + "));");
-        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + Lease + " (" + TENANTEID + " INTEGER, " + UNITID + " INTEGER, " + LEASEID + " INTEGER, " + LEASESTART + " TEXT, " + LEASEEND + " TEXT, " + RENTDUEDATE + " TEXT, " + DEPOSIT + " REAL, " + NOTE + " TEXT, PRIMARY KEY (" + TENANTEID + ", " + UNITID + ",  " + LEASEID + " ), FOREIGN KEY(" + TENANTEID + ") REFERENCES " + Tenant + " (" + _ID + "), FOREIGN KEY(" + UNITID + ") REFERENCES " + Unit + " (" + _ID + "));");
+        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + Lease + " (" + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + TENANTEID + " INTEGER, " + UNITID + " INTEGER, " + LEASEID + " INTEGER, " + LEASESTART + " TEXT, " + LEASEEND + " TEXT, " + RENTDUEDATE + " NUMBER, " + RENTAMOUNT + " REAL," + RENTDEPOSIT + " REAL, " + LEASENOTE + " TEXT, FOREIGN KEY(" + TENANTEID + ") REFERENCES " + Tenant + " (" + _ID + "), FOREIGN KEY(" + UNITID + ") REFERENCES " + Unit + " (" + _ID + "));");
         sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + Tenant + " (" + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT, " + PHONE + " TEXT);");
-        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + Payment + " (" + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + TENANTEID + " INTEGER, " + AMOUNT + " REAL, " + PAYMENTDATE + " TEXT, " + DUETO + " REAL, " + PAYMENTTYPE + " TEXT,  FOREIGN KEY(" + TENANTEID + ") REFERENCES " + Tenant + " (" + _ID + "));");
-        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + Notification + " (" + TENANTEID + " INTEGER, " + MESSAGEID + " INTEGER, " + REMINDERID + " INTEGER, " + NOTIFICATIONDATE + " TEXT, PRIMARY KEY (" + TENANTEID + ", " + MESSAGEID + ",  " + REMINDERID + "), FOREIGN KEY(" + TENANTEID + ") REFERENCES " + Tenant + " (" + _ID + "), FOREIGN KEY(" + MESSAGEID + ") REFERENCES " + Message + " (" + _ID + "));");
+        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + Payment + " (" + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + TENANTEID + " INTEGER, " + LEASEID + " INTEGER, " + AMOUNT + " REAL, " + PAYMENTDATE + " TEXT, " + DUETO + " REAL, " + PAYMENTTYPE + " TEXT,  FOREIGN KEY(" + TENANTEID + ") REFERENCES " + Tenant + " (" + _ID + "),  FOREIGN KEY(" + LEASEID + ") REFERENCES " + Lease + " (" + _ID + "));");
+        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + Notification + " (" + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + TENANTEID + " INTEGER, " + MESSAGEID + " INTEGER, " + NOTIFICATIONDATE + " TEXT, FOREIGN KEY(" + TENANTEID + ") REFERENCES " + Tenant + " (" + _ID + "), FOREIGN KEY(" + MESSAGEID + ") REFERENCES " + Message + " (" + _ID + "));");
         sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + Message + " (" + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + MESSAGETEXT + " TEXT, " + MESSAGETYPE + " TEXT);");
     }
 

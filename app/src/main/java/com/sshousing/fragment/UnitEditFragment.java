@@ -18,9 +18,6 @@ import com.sshousing.R;
 import com.sshousing.database.DataProvider;
 import com.sshousing.utilities.SpinnerAdapter;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Created by ilyas on 6/10/17.
  */
@@ -28,61 +25,92 @@ import java.util.Map;
 public class UnitEditFragment extends Fragment{
 
     EditText unitNumber,unitFloor;
-    Spinner spinner;
-    int buidlingId;
-    SpinnerAdapter[] spinnerAdapter;
+    Spinner buildingSpinner, unitFloorSpinner;
+    int buildingId = 0 , floorNumber = 0;
+    SpinnerAdapter[] spinnerAdapterBuilding, spinnerAdapterFloor;
 
+    //TODO this is shit code, do better!
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmentunitedit, container, false);
-        spinner = (Spinner) view.findViewById(R.id.buildingspinner);
+        buildingSpinner = (Spinner) view.findViewById(R.id.buildingspinner);
+        unitFloorSpinner = (Spinner) view.findViewById(R.id.floorspinner);
         unitNumber = (EditText) view.findViewById(R.id.unitnumbereditText);
-        unitFloor = (EditText) view.findViewById(R.id.unitflooreditText);
+//        unitFloor = (EditText) view.findViewById(R.id.unitflooreditText);
         Button addButton = (Button) view.findViewById(R.id.addunitbutton);
-        fillspinner();
+        fillSpinner();
         addButton.findViewById(R.id.addunitbutton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DataProvider dataProvider = new DataProvider(getActivity());
-                dataProvider.open();
-                long l = dataProvider.insertUnit(buidlingId, unitNumber.getText().toString(), Integer.parseInt(unitFloor.getText().toString()));
-                dataProvider.close();
-                Toast.makeText(getActivity(), "Unit successfully add with id: " + l, Toast.LENGTH_SHORT).show();
-                unitNumber.setText(null);
-                unitFloor.setText(null);
+                if (unitNumber.getText().toString().isEmpty() || buildingId == 0 || floorNumber == 0) {
+                    Toast.makeText(getActivity(), "Please fill in all the information ", Toast.LENGTH_SHORT).show();
+                } else {
+                    DataProvider dataProvider = new DataProvider(getActivity());
+                    dataProvider.open();
+                    long l = dataProvider.insertUnit(buildingId, unitNumber.getText().toString(), floorNumber);
+                    dataProvider.close();
+                    Toast.makeText(getActivity(), "Unit successfully add with id: " + l, Toast.LENGTH_SHORT).show();
+                    unitNumber.setText(null);
+//                unitFloor.setText(null);
+                }
             }
         });
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        buildingSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity(), "id: " + id + ", position: " + position + ", buildingid: " + spinnerAdapter[position].getId(), Toast.LENGTH_SHORT).show();
-                buidlingId = spinnerAdapter[position].getId();
+                Toast.makeText(getActivity(), "id: " + id + ", position: " + position + ", buildingid: " + spinnerAdapterBuilding[position].getId(), Toast.LENGTH_SHORT).show();
+                buildingId = spinnerAdapterBuilding[position].getId();
+                resizeSpinner(spinnerAdapterBuilding[position].getFloors());
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+                //this shouldnt happen
+            }
+        });
+        unitFloorSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getActivity(), "floor number: " + id + ", floor id: " + spinnerAdapterFloor[position].getId(), Toast.LENGTH_SHORT).show();
+                floorNumber = spinnerAdapterFloor[position].getId();
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                //this shouldnt happen
             }
         });
 
         return view;
     }
-    private void fillspinner(){
+
+    private void fillSpinner(){
         DataProvider dataProvider = new DataProvider(getActivity());
         dataProvider.open();
         Cursor cursor = dataProvider.listBuilding();
-        spinnerAdapter = new SpinnerAdapter[cursor.getCount()];
+        spinnerAdapterBuilding = new SpinnerAdapter[cursor.getCount()];
         int i = 0;
         if (cursor.moveToFirst()) {
             do {
-                spinnerAdapter[i] = new SpinnerAdapter(Integer.parseInt(cursor.getString(0)), cursor.getString(1));
+                spinnerAdapterBuilding[i] = new SpinnerAdapter(Integer.parseInt(cursor.getString(0)), cursor.getString(1), Integer.parseInt(cursor.getString(3)));
                 i = i + 1;
             } while (cursor.moveToNext());
         }
-        ArrayAdapter<SpinnerAdapter> adapter =new ArrayAdapter<SpinnerAdapter>(getActivity(), android.R.layout.simple_spinner_item, spinnerAdapter);
+        ArrayAdapter<SpinnerAdapter> adapter =new ArrayAdapter<SpinnerAdapter>(getActivity(), android.R.layout.simple_spinner_item, spinnerAdapterBuilding);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+        buildingSpinner.setAdapter(adapter);
+
         cursor.close();
         dataProvider.close();
+    }
+
+    private void resizeSpinner(int size){
+        spinnerAdapterFloor = new SpinnerAdapter[size];
+        for(int i=0; i < size; i++){
+            spinnerAdapterFloor[i] = new SpinnerAdapter(i+1, String.valueOf(i+1), i+1);
+        }
+        ArrayAdapter<SpinnerAdapter> adapter =new ArrayAdapter<SpinnerAdapter>(getActivity(), android.R.layout.simple_spinner_item, spinnerAdapterFloor);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        unitFloorSpinner.setAdapter(adapter);
     }
 }

@@ -1,7 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tenantleasetextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tenant Name:"/>
+
+        <Spinner
+            android:id="@+id/tenantleasespinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/buildingAddressleasetextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Building address:"/>
+
+        <Spinner
+            android:id="@+id/buildingAddressleasespinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/unitleasetextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Unit number:"/>
+
+        <Spinner
+            android:id="@+id/unitleasespinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- <LinearLayout
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             android:weightSum="1">-->
+
+        <TextView
+            android:id="@+id/floorleasetextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="floor Number:"/>
+
+        <!--</LinearLayout>-->
+
+        <EditText
+            android:id="@+id/floorleaseeditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            android:ems="10"/>
+
+        <TextView
+            android:id="@+id/startdateleasetextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lease start date:"/>
+
+        <EditText
+            android:id="@+id/startdateleaseeditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:focusableInTouchMode="false"
+            android:hint="Lease start date"/>
+
+        <TextView
+            android:id="@+id/enddateleasetextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lease end day:"/>
+
+        <EditText
+            android:id="@+id/enddateleaseeditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:focusableInTouchMode="false"
+            android:hint="Lease end date"/>
+
+        <TextView
+            android:id="@+id/rentduedateleasetextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rent due date"/>
+
+        <EditText
+            android:id="@+id/rentduedateleaseeditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Rent due date e.g.: 1 (as first)"
+            android:inputType="number"/>
+
+        <TextView
+            android:id="@+id/rentamountleasetextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rent amount"/>
+
+        <EditText
+            android:id="@+id/rentamountleaseeditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Rent amount"
+            android:inputType="number"/>
+
+        <TextView
+            android:id="@+id/depositleasetextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rent deposit"/>
+
+        <EditText
+            android:id="@+id/depositleaseeditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Rent deposit"
+            android:inputType="number"/>
+
+        <TextView
+            android:id="@+id/noteleasetextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lease note"/>
+
+        <EditText
+            android:id="@+id/noteleaseeditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="3"
+            android:scrollbars="vertical"
+            android:maxLines="10"
+            android:hint="Lease note"/>
+
+        <Button
+            android:id="@+id/addleasebutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Lease"/>
+
+    </LinearLayout>
+</ScrollView>
+

@@ -22,19 +22,24 @@ public class MainMenuFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmentmainmenu, container, false);
-        addListenerOnBulding(view);
+        /*addListenerOnBuilding(view);
         addListenerOnUnit(view);
+        addListenerOnTenant(view);*/
+        genericListener(view, R.id.imageButtonBuilding, new BuildingListFragment());
+        genericListener(view, R.id.imageButtonUnit, new UnitListFragment());
+        genericListener(view, R.id.imageButtonTenant, new TenantListFragment());
+        genericListener(view, R.id.imageButtonLease, new LeaseListFragment());
         return view;
     }
 
-    public void addListenerOnBulding(View view) {
+    /*public void addListenerOnBuilding(View view) {
         ImageButton imageButton = (ImageButton) view.findViewById(R.id.imageButtonBuilding);
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 Fragment fragment = new BuildingListFragment();
                 fragmentManaging(fragment);
-                Toast.makeText(getActivity(), "ImageButton is clicked!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Building ImageButton is clicked!", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -46,7 +51,30 @@ public class MainMenuFragment extends Fragment {
             public void onClick(View arg0) {
                 Fragment fragment = new UnitListFragment();
                 fragmentManaging(fragment);
-                Toast.makeText(getActivity(), "ImageButton is clicked!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Unit ImageButton is clicked!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void addListenerOnTenant(View view) {
+        ImageButton imageButton = (ImageButton) view.findViewById(R.id.imageButtonTenant);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Fragment fragment = new UnitListFragment();
+                fragmentManaging(fragment);
+                Toast.makeText(getActivity(), "Unit ImageButton is clicked!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }*/
+
+    private void genericListener(View view, int imageId, final Fragment fragment){
+        ImageButton imageButton = (ImageButton) view.findViewById(imageId);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                fragmentManaging(fragment);
+                Toast.makeText(getActivity(), fragment.getClass().getName()+ " ImageButton is clicked!", Toast.LENGTH_SHORT).show();
             }
         });
     }

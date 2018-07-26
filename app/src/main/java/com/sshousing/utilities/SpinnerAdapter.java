@@ -8,10 +8,20 @@ public class SpinnerAdapter {
 
     private int id;
     private String value;
+    private int floors;
 
-    public SpinnerAdapter(int id, String value) {
+    public SpinnerAdapter(int id, String value, int floors) {
         this.id = id;
         this.value = value;
+        this.floors = floors;
+    }
+
+    public int getFloors() {
+        return floors;
+    }
+
+    public void setFloors(int floors) {
+        this.floors = floors;
     }
 
     public String getValue() {

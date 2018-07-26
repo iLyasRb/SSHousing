@@ -19,7 +19,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Unit Number"/>
-
     <EditText
         android:id="@+id/unitnumbereditText"
         android:layout_width="match_parent"
@@ -34,13 +33,18 @@
         android:layout_height="wrap_content"
         android:text="Unit Floor"/>
 
-    <EditText
-        android:id="@+id/unitflooreditText"
+    <!--<EditText-->
+        <!--android:id="@+id/unitflooreditText"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:ems="10"-->
+        <!--android:hint="Unit Floor"-->
+        <!--android:inputType="number"/>-->
+
+    <Spinner
+        android:id="@+id/floorspinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Unit Floor"
-        android:inputType="number"/>
+        android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/addunitbutton"

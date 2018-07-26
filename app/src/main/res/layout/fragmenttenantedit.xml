@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Full name"/>
+        android:hint="Full name"/>
 
     <TextView
         android:id="@+id/tenantphonetextView"
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="phone"
-        android:text="Phone number"/>
+        android:hint="Phone number"/>
 
     <Button
         android:id="@+id/addtenantbutton"

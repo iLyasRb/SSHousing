@@ -19,27 +19,33 @@ import com.sshousing.database.DataProvider;
 
 public class BuildingEditFragment extends Fragment{
 
-    EditText address;
-    EditText nbrofunit;
+    EditText address, nbrofunits, nbroffloors;
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         /*return super.onCreateView(inflater, container, savedInstanceState);*/
 
         View view = inflater.inflate(R.layout.fragmentbuildingedit, container, false);
         address = (EditText) view.findViewById(R.id.addresseditText);
-        nbrofunit = (EditText) view.findViewById(R.id.unitnbreditText);
+        nbrofunits = (EditText) view.findViewById(R.id.unitnbreditText);
+        nbroffloors = (EditText) view.findViewById(R.id.floornbreditText);
         Button addButton = (Button) view.findViewById(R.id.addbuildingbutton);
 
         addButton.findViewById(R.id.addbuildingbutton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (address.getText().toString().isEmpty() || nbrofunits.getText().toString().isEmpty() || nbroffloors.getText().toString().isEmpty()) {
+                    Toast.makeText(getActivity(), "Please fill in all the information ", Toast.LENGTH_SHORT).show();
+                } else {
                 DataProvider dataProvider = new DataProvider(getActivity());
                 dataProvider.open();
-                long l = dataProvider.insertBuilding(address.getText().toString(), Integer.parseInt(nbrofunit.getText().toString()));
+                long buidingId = dataProvider.insertBuilding(address.getText().toString(), Integer.parseInt(nbrofunits.getText().toString()), Integer.parseInt(nbroffloors.getText().toString()));
                 dataProvider.close();
-                Toast.makeText(getActivity(), "Building successfully add with id: " + l, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Building successfully add with id: " + buidingId, Toast.LENGTH_SHORT).show();
                 address.setText(null);
-                nbrofunit.setText(null);
+                nbrofunits.setText(null);
+                nbroffloors.setText(null);
+                }
             }
         });
 
