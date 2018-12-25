@@ -25,8 +25,8 @@ public class LeaseListFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmentleaselist, container, false);
         ListView listView = (ListView) view.findViewById(R.id.leaselist);
-        String[] from = new String[] {/*DatabaseHelper.BUILDINGID, */DatabaseHelper._ID, DatabaseHelper.LEASESTART};
-        int[] to = new int[] {R.id.oneleasetextView, R.id.twoleaselisttextView};
+        String[] from = new String[] {DatabaseHelper.TENANTNAME, DatabaseHelper.BUILDINGADDRESS, DatabaseHelper.UNITNUMBER, DatabaseHelper.LEASESTART, DatabaseHelper.LEASEEND, DatabaseHelper.LEASEDUEDATE, DatabaseHelper.LEASEAMOUNT, DatabaseHelper.LEASEDEPOSIT, DatabaseHelper.LEASENOTE};
+        int[] to = new int[] {R.id.tenantnameshowleaselisttextView, R.id.addressshowleaselisttextView, R.id.unitnumbershowleaselisttextView, R.id.startdateshowleaselisttextView, R.id.enddateshowleaselisttextView, R.id.duedateshowleaselisttextView, R.id.rentamountshowleaselisttextView, R.id.rentdepositshowleaselisttextView, R.id.rentnoteshowleaselisttextView};
         DataProvider dataProvider = new DataProvider(getActivity());
         dataProvider.open();
         Cursor cursor = dataProvider.listLease();

@@ -26,7 +26,7 @@ public class UnitListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmentunitlist, container, false);
         ListView listView = (ListView) view.findViewById(R.id.unitlist);
-        String[] from = new String[] {DatabaseHelper.ADDRESS, DatabaseHelper.NUMBER, DatabaseHelper.FLOOR};
+        String[] from = new String[] {DatabaseHelper.BUILDINGADDRESS, DatabaseHelper.UNITNUMBER, DatabaseHelper.UNITFLOORNUMBER};
         int[] to = new int[] {R.id.addressunitlist, R.id.nbrunitlist, R.id.floorunitlist};
         DataProvider dataProvider = new DataProvider(getActivity());
         dataProvider.open();

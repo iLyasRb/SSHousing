@@ -23,6 +23,8 @@ import com.sshousing.fragment.BuildingEditFragment;
 import com.sshousing.fragment.BuildingListFragment;
 import com.sshousing.fragment.LeaseEditFragment;
 import com.sshousing.fragment.MainMenuFragment;
+import com.sshousing.fragment.PaymentFragment;
+import com.sshousing.fragment.SmsFragment;
 import com.sshousing.fragment.TenantEditFragment;
 import com.sshousing.fragment.UnitEditFragment;
 
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                fragmentManaging(new PaymentFragment());
             }
         });
 
@@ -124,8 +127,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_lease) {
             fragment = new LeaseEditFragment();
         } else if (id == R.id.nav_share) {
-            fragment = new BuildingListFragment();
-            Toast.makeText(getApplicationContext(), "nav_gallery", Toast.LENGTH_SHORT).show();
+            fragment = new SmsFragment();
+//            fragment = new BuildingListFragment();
+//            Toast.makeText(getApplicationContext(), "nav_gallery", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_send) {
             fragment = new BuildingListFragment();
             Toast.makeText(getApplicationContext(), "nav_gallery", Toast.LENGTH_SHORT).show();

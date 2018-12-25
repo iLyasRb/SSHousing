@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:tools="http://schemas.android.com/tools"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tenantpaymenttextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lease start date:"/>
+
+        <Spinner
+            android:id="@+id/tenantpaymentspinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Spinner
+            android:id="@+id/buildingAddresspaymentspinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/amountpaymenttextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="amount:"/>
+
+        <EditText
+            android:id="@+id/amountpaymenteditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"/>
+        <Button
+            android:id="@+id/savepaymentbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save payment"/>
+    </LinearLayout>
+
+</FrameLayout>

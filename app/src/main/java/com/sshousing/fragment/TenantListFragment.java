@@ -29,7 +29,7 @@ public class TenantListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragmenttenantlist, container, false);
         ListView listView = (ListView) view.findViewById(R.id.tenantlist);
-        String[] from = new String[] {DatabaseHelper._ID, DatabaseHelper.NAME, DatabaseHelper.PHONE};
+        String[] from = new String[] {DatabaseHelper._ID, DatabaseHelper.TENANTNAME, DatabaseHelper.TENANTPHONE};
         int[] to = new int[] {R.id.tenantIdlisttextView, R.id.tenantnamelist, R.id.tenantphonelist};
         final DataProvider dataProvider = new DataProvider(getActivity());
         dataProvider.open();

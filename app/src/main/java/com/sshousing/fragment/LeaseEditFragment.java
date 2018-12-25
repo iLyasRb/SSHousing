@@ -39,7 +39,7 @@ public class LeaseEditFragment extends Fragment {
     EditText floorNumber, startDate, endDate, rentamount, deposit, note, dueDate;
     SpinnerAdapter[] spinnerAdapterTenant, spinnerAdapterBuilding, spinnerAdapterUnit;
     Calendar myCalendar = Calendar.getInstance();
-    int unitId, tenantId;
+    int unitId, tenantId, buildingId;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -63,7 +63,7 @@ public class LeaseEditFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getActivity(), "id: " + id + ", position: " + position + ", buildingid: " + spinnerAdapterTenant[position].getId(), Toast.LENGTH_SHORT).show();
-                tenantId = spinnerAdapterBuilding[position].getId();
+                tenantId = spinnerAdapterTenant[position].getId();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -73,7 +73,8 @@ public class LeaseEditFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getActivity(), "id: " + id + ", position: " + position + ", buildingid: " + spinnerAdapterBuilding[position].getId(), Toast.LENGTH_SHORT).show();
-                fillUnitSpinner(spinnerAdapterBuilding[position].getId());
+                buildingId = spinnerAdapterBuilding[position].getId();
+                fillUnitSpinner(buildingId);
 //                floorNumber.setText(String.valueOf(spinnerAdapterBuilding[position].getFloors()));
 //                resizeSpinner(spinnerAdapterBuilding[position].getFloors());
             }
@@ -86,8 +87,8 @@ public class LeaseEditFragment extends Fragment {
         unitSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(getActivity(), "id: " + id + ", position: " + position + ", buildingid: " + spinnerAdapterBuilding[position].getId(), Toast.LENGTH_SHORT).show();
-                unitId = spinnerAdapterBuilding[position].getId();
+                Toast.makeText(getActivity(), "id: " + id + ", position: " + position + ", buildingid: " + spinnerAdapterBuilding[position].getId(), Toast.LENGTH_SHORT).show();
+                unitId = spinnerAdapterUnit[position].getId();
                 floorNumber.setText(String.valueOf(spinnerAdapterUnit[position].getFloors()));
 //                resizeSpinner(spinnerAdapterBuilding[position].getFloors());
             }
@@ -150,7 +151,7 @@ public class LeaseEditFragment extends Fragment {
                 } else {
                     DataProvider dataProvider = new DataProvider(getActivity());
                     dataProvider.open();
-                    long l = dataProvider.insertLease(unitId, tenantId, startDate.getText().toString(), endDate.getText().toString(),
+                    long l = dataProvider.insertLease(buildingId, unitId, tenantId, startDate.getText().toString(), endDate.getText().toString(),
                                                       Double.parseDouble(rentamount.getText().toString()), dueDate.getText().toString(),
                                                       Double.parseDouble(deposit.getText().toString()), note.getText().toString());
                     dataProvider.close();

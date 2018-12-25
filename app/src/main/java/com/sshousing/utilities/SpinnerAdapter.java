@@ -34,7 +34,6 @@ public class SpinnerAdapter {
     }
 
     public int getId() {
-
         return id;
     }
 
@@ -46,4 +45,5 @@ public class SpinnerAdapter {
     public String toString() {
         return value;
     }
+
 }

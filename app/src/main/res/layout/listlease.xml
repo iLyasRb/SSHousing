@@ -10,23 +10,244 @@
         android:weightSum="1">
 
         <TextView
-            android:id="@+id/oneleasetextView"
+            android:id="@+id/tenantnameleaselisttextView"
             android:layout_weight="0.8"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:layout_gravity="left"
-            android:text="one"/>
+            android:text="name"/>
 
         <TextView
-            android:id="@+id/twoleaselisttextView"
+            android:id="@+id/tenantnameshowleaselisttextView"
             android:layout_weight="0.2"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:layout_gravity="right"
-            android:text="two"/>
+            android:text="name"/>
+    </LinearLayout>
+    <!--LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/tenantnumberleaselisttextView"
+            android:layout_weight="0.8"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="left"
+            android:text="phone"/>
+
+        <TextView
+            android:id="@+id/tenantnumbershowleaselisttextView"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="right"
+            android:text="phone"/>
+    </LinearLayout-->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/addressleaselisttextView"
+            android:layout_weight="0.8"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="left"
+            android:text="addresss"/>
+
+        <TextView
+            android:id="@+id/addressshowleaselisttextView"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="right"
+            android:text="addresss"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/unitnumberleaselisttextView"
+            android:layout_weight="0.8"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="left"
+            android:text="unit number"/>
+
+        <TextView
+            android:id="@+id/unitnumbershowleaselisttextView"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="right"
+            android:text="unit number"/>
+    </LinearLayout>
+    <!--LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/floorleaselisttextView"
+            android:layout_weight="0.8"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="left"
+            android:text="floor"/>
+
+        <TextView
+            android:id="@+id/floorshowleaselisttextView"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="right"
+            android:text="floor"/>
+    </LinearLayout-->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/startdateleaselisttextView"
+            android:layout_weight="0.8"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="left"
+            android:text="start date"/>
+
+        <TextView
+            android:id="@+id/startdateshowleaselisttextView"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="right"
+            android:text="start date"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/enddateleaselisttextView"
+            android:layout_weight="0.8"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="left"
+            android:text="end date"/>
+
+        <TextView
+            android:id="@+id/enddateshowleaselisttextView"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="right"
+            android:text="end date"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/duedateleaselisttextView"
+            android:layout_weight="0.8"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="left"
+            android:text="due date"/>
+
+        <TextView
+            android:id="@+id/duedateshowleaselisttextView"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="right"
+            android:text="due date"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/rentamountleaselisttextView"
+            android:layout_weight="0.8"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="left"
+            android:text="rent amount"/>
+
+        <TextView
+            android:id="@+id/rentamountshowleaselisttextView"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="right"
+            android:text="rent amount"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/rentdepositleaselisttextView"
+            android:layout_weight="0.8"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="left"
+            android:text="rent deposit"/>
+
+        <TextView
+            android:id="@+id/rentdepositshowleaselisttextView"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="right"
+            android:text="rent deposit"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/rentnoteleaselisttextView"
+            android:layout_weight="0.8"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="left"
+            android:text="rent note"/>
+
+        <TextView
+            android:id="@+id/rentnoteshowleaselisttextView"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_gravity="right"
+            android:text="rent note"/>
     </LinearLayout>
 
-    <LinearLayout
+
+    <!--LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -62,6 +283,6 @@
             android:layout_width="fill_parent"
             android:layout_gravity="right"
             android:text="Number of floors"/>
-    </LinearLayout>
+    </LinearLayout-->
 
 </LinearLayout>

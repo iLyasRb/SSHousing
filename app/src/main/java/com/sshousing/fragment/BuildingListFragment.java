@@ -26,7 +26,7 @@ public class BuildingListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmentbuildinglist, container, false);
         ListView listView = (ListView) view.findViewById(R.id.buildinglist);
-        String[] from = new String[] {/*DatabaseHelper.BUILDINGID, */DatabaseHelper.ADDRESS, DatabaseHelper.NBROFUNITS, DatabaseHelper.NBROFFLOORS};
+        String[] from = new String[] {/*DatabaseHelper.BUILDINGID, */DatabaseHelper.BUILDINGADDRESS, DatabaseHelper.BUILDINGNBROFUNITS, DatabaseHelper.BUILDINGNBROFFLOORS};
         int[] to = new int[] {R.id.addressbuildinglist, R.id.unitnbrlist, R.id.floornbrlist};
         DataProvider dataProvider = new DataProvider(getActivity());
         dataProvider.open();
